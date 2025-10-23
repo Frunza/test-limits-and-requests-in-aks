@@ -68,7 +68,7 @@ Depending how limits and requests are used, a deployment can fit in on of these 
 -burstable: the requested resources are lower than the limits
 -best effort: no limits and requests are configured
 
-With the `guaranteed` categgory, you basically tell `k8s` that you are sure your pod will stay within the limits you configure. If a container exceeds its limit, it will be terminated.
+With the `guaranteed` category, you basically tell `k8s` that you are sure your pod will stay within the limits you configure. If a container exceeds its limit, it will be terminated.
 With the `burstable` category, you tell `k8s` that the pod need at least the resources configured by requests, but they can potentially grow to the defined limits. If a container exceeds its limit, it will be terminated.
 With the `best effort` category, you say that you have no idea about the usage of the pod.
 
@@ -757,7 +757,7 @@ memory-hog-guaranteed-fd685898d-tgn2l     1/1     Running                  0    
 memory-hog-guaranteed-fd685898d-z4c7t     1/1     Running                  2 (13m ago)   14m
 memory-hog-guaranteed-fd685898d-zlf2m     1/1     Running                  0             14m
 ```
-Here we notice that a pod in the `burstable` category deployment is in `ContainerStatusUnknown` status, which was probably caused by an eviction. `ContainerStatusUnknown` is not a good state, since it indicates that the cluster is not healthy, which can happen if it is full. Other than that there is not much difference between the `guaranteed` and `burstable` categories. The pods in the `best effort` category pdeployment are the ones that get evicted and are in a very bad state, even though all deployments have 4 pods of each category.
+Here we notice that a pod in the `burstable` category deployment is in `ContainerStatusUnknown` status, which was probably caused by an eviction. `ContainerStatusUnknown` is not a good state, since it indicates that the cluster is not healthy, which can happen if it is full. Other than that there is not much difference between the `guaranteed` and `burstable` categories. The pods in the `best effort` category deployment are the ones that get evicted and are in a very bad state, even though all deployments have 4 pods of each category.
 
 ## Conclusion
 
